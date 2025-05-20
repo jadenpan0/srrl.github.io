@@ -1,0 +1,316 @@
+
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- bulma css template -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <!-- ionicons -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <!-- model viewer -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"></script>
+  <title>
+    UniTransfer
+  </title>
+  <link rel="icon" href="icon.ico">
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+   
+        
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/before_after.css">
+  <!-- <link rel="icon" href="./static/images/cameraicon.svg"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <link rel="stylesheet" href="./static/css/magnify.css">
+  <script src="./static/js/jquery.magnify.js"></script>
+
+
+</head>
+
+<body>
+
+  <style>
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+
+  .icon-list {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        justify-content: space-around; /* 控制每个图标+文字组的间距 */
+    }
+    .icon-list li {
+        display: flex;
+        align-items: center;
+        gap: 8px; /* 控制图标和文字之间的间距 */
+    }
+    .icon {
+        width: 30px;
+        height: 30px;
+    }
+
+
+
+  </style>
+
+  <section class="section">
+  <div class="container has-text-centered">
+
+    <p class="title is-3"> 🧙‍♂️ UniTransfer: Video Concept Transfer via Progressive Spatial and Timestep Decomposition
+    </p>
+
+
+    <div class="is-flex is-justify-content-center">
+
+    </div>
+    <br>
+    <img class="summary-img" src="imgs\teaser.png" style="width:100%;">
+
+  </div>
+
+  <!-- main container -->
+  <div class="container">
+
+    <!-- abstract -->
+    <p class="title is-3 mt-5 has-text-centered"> Abstract </p>
+    <p class="content is-size-6 has-text-left">
+      Recent advancements in video generation models have enabled the creation of diverse and novel videos, with promising applications in advertising and film production. However, video concept transfer, which aims to transfer user-defined targets to substitute specified elements in a video, remains a promising yet challenging task. Existing methods typically model video as a holistic entity, leading to limited flexibility and precision when editing only specific regions or concepts. To address these limitations, we propose a novel framework named VCTDiT that introduces both spatial and diffusion timestep decomposition in a progressive mechanism for controllable video concept transfer. To achieve the spatial decomposition, we decouple videos into three key components: the foreground subject, the background, and the motion flow. Building upon this decomposed formulation, we further design a dual-stream to single-stream DiT-based architecture for supporting fine-grained control over different components in the video. We also introduce a self-supervised pretraining strategy based on random masking to enhance the decomposed representation learning from large-scale unlabeled video data. To achieve the timestep decomposition, we revisit the diffusion denoising process and propose a Chain-of-Prompt (CoP) mechanism inspired by the Chain-of-Thought reasoning paradigm. We decompose the denoising process into three stages of different granularity and leverage large language models (LLMS) for stage-specific instructions to guide the generation progressively. We also curate an animal-centric video dataset called OpenAnimal to facilitate the advancement and benchmarking of research in video concept transfer. 
+      Extensive experiments demonstrate that our method achieves high-quality and controllable video concept transfer across diverse reference images and scenes, surpassing existing baselines in both visual fidelity and editability.
+    </p>
+
+
+    <p class="title is-3 mt-5 has-text-centered">Overview</p>
+    <img class="summary-img" src="imgs/pipeline.png" style="width:100%;">
+    <p class="title is-3 mt-5 has-text-centered"> Visualization Results</p>
+
+    
+
+
+      <div class="content has-text-justified">
+        <h3 class="title is-4">Human foreground transfer</h3>
+        </div>
+
+        <table class="table" style="height:100%;width:100%;">
+          <colgroup>
+            <col span="1" style="width: 33%;">
+            <col span="1" style="width: 33%;">
+            <col span="1" style="width: 33%;">
+          </colgroup>
+
+
+            <tr> 
+              <th> <video muted controls autoplay loop> <source src="human_object_transfer/output_19converted.mp4" type="video/mp4"> </video> </th>
+              <th> <video muted controls autoplay loop> <source src="human_object_transfer/output_29converted.mp4" type="video/mp4"> </video> </th>
+              <th> <video muted controls autoplay loop> <source src="human_object_transfer/output_56converted.mp4" type="video/mp4"> </video> </th>
+            </tr>
+
+            <tr> 
+              <th> <video muted controls autoplay loop> <source src="human_object_transfer/output_59converted.mp4" type="video/mp4"> </video> </th>
+              <th> <video muted controls autoplay loop> <source src="human_object_transfer/output_64converted.mp4" type="video/mp4"> </video> </th>
+              <th> <video muted controls autoplay loop> <source src="human_object_transfer/output_144converted.mp4" type="video/mp4"> </video> </th>
+            </tr>
+        </table>
+
+
+        <div class="content has-text-justified">
+          <h3 class="title is-4">Human background transfer</h3>
+          </div>
+  
+          <table class="table" style="height:100%;width:100%;">
+            <colgroup>
+              <col span="1" style="width: 33%;">
+              <col span="1" style="width: 33%;">
+              <col span="1" style="width: 33%;">
+            </colgroup>
+  
+  
+              <tr> 
+                <th> <video muted controls autoplay loop> <source src="background_transfer/output_1converted.mp4" type="video/mp4"> </video> </th>
+                <th> <video muted controls autoplay loop> <source src="background_transfer//output_2converted.mp4" type="video/mp4"> </video> </th>
+                <th> <video muted controls autoplay loop> <source src="background_transfer//output_3converted.mp4" type="video/mp4"> </video> </th>
+              </tr>
+ 
+  
+              <tr> 
+                <th> <video muted controls autoplay loop> <source src="background_transfer/output_4converted.mp4" type="video/mp4"> </video> </th>
+                <th> <video muted controls autoplay loop> <source src="background_transfer/output_5converted.mp4" type="video/mp4"> </video> </th>
+                <th> <video muted controls autoplay loop> <source src="background_transfer/output_6converted.mp4" type="video/mp4"> </video> </th>
+              </tr>
+          </table>
+
+          <div class="content has-text-justified">
+            <h3 class="title is-4">Cloth transfer</h3>
+            </div>
+    
+            <table class="table" style="height:100%;width:100%;">
+              <colgroup>
+                <col span="1" style="width: 16%;">
+                <col span="1" style="width: 16%;">
+                <col span="1" style="width: 16%;">
+                <col span="1" style="width: 16%;">
+                <col span="1" style="width: 16%;">
+                <col span="1" style="width: 16%;">
+              </colgroup>
+    
+    
+                <tr> 
+                  <th> <video muted controls autoplay loop> <source src="cloth_transfer/ref_video/input-1converted.mp4" type="video/mp4"> </video> </th>
+                  <th> <video muted controls autoplay loop> <source src="cloth_transfer/ref_video/input-2converted.mp4" type="video/mp4"> </video> </th>
+                  <th> <video muted controls autoplay loop> <source src="cloth_transfer/ref_video/input-3converted.mp4" type="video/mp4"> </video> </th>
+                  <th> <video muted controls autoplay loop> <source src="cloth_transfer/ref_video/input-3converted.mp4" type="video/mp4"> </video> </th>
+                  <th> <video muted controls autoplay loop> <source src="cloth_transfer/ref_video/input-5converted.mp4" type="video/mp4"> </video> </th>
+                  <th> <video muted controls autoplay loop> <source src="cloth_transfer/ref_video/input-6converted.mp4" type="video/mp4"> </video> </th>
+                </tr>
+                <tr> 
+                  <th>
+                    <a href="">
+                        <img src="cloth_transfer/imgs/cloth_2.png">
+                    </a>
+                  </th>
+                  <th>
+                    <a href="">
+                        <img src="cloth_transfer/imgs/cloth_3.png">
+                    </a>
+                  </th>
+                  <th>
+                    <a href="">
+                        <img src="cloth_transfer/imgs/cloth_4.png">
+                    </a>
+                  </th>
+                  <th>
+                    <a href="">
+                        <img src="cloth_transfer/imgs/cloth_6.png">
+                    </a>
+                  </th>
+                  <th>
+                    <a href="">
+                        <img src="cloth_transfer/imgs/cloth_1.png">
+                    </a>
+                  </th>
+                  <th>
+                    <a href="">
+                        <img src="cloth_transfer/imgs/cloth_7.jpg">
+                    </a>
+                  </th>
+                </tr>    
+                <tr> 
+                  <th> <video muted controls autoplay loop> <source src="cloth_transfer/out_video/sample-1converted.mp4" type="video/mp4"> </video> </th>
+                  <th> <video muted controls autoplay loop> <source src="cloth_transfer/out_video/sample-2converted.mp4" type="video/mp4"> </video> </th>
+                  <th> <video muted controls autoplay loop> <source src="cloth_transfer/out_video/sample-3converted.mp4" type="video/mp4"> </video> </th>
+                  <th> <video muted controls autoplay loop> <source src="cloth_transfer/out_video/sample-4converted.mp4" type="video/mp4"> </video> </th>
+                  <th> <video muted controls autoplay loop> <source src="cloth_transfer/out_video/sample-5converted.mp4" type="video/mp4"> </video> </th>
+                  <th> <video muted controls autoplay loop> <source src="cloth_transfer/out_video/sample-6converted.mp4" type="video/mp4"> </video> </th>
+                </tr>
+            </table>
+
+
+
+
+
+          <div class="content has-text-justified">
+            <h3 class="title is-4">Animal transfer</h3>
+            </div>
+    
+            <table class="table" style="height:100%;width:100%;">
+              <colgroup>
+                <col span="1" style="width: 25%;">
+                <col span="1" style="width: 25%;">
+                <col span="1" style="width: 25%;">
+                <col span="1" style="width: 25%;">
+              </colgroup>
+    
+    
+                <tr> 
+                  <th> <video muted controls autoplay loop> <source src="animals_transfer/input/103363-662525715.mp4" type="video/mp4"> </video> </th>
+                  <th> <video muted controls autoplay loop> <source src="animals_transfer/input/129992-746164384.mp4" type="video/mp4"> </video> </th>
+                  <th> <video muted controls autoplay loop> <source src="animals_transfer/input/145320-786403437.mp4" type="video/mp4"> </video> </th>
+                  <th> <video muted controls autoplay loop> <source src="animals_transfer/input/154529-807726735.mp4" type="video/mp4"> </video> </th>
+                </tr>
+                <tr> 
+                  <th>
+                    <a href="">
+                        <img src="animals_transfer/imgs/103363-662525715_small.png">
+                    </a>
+                  </th>
+                  <th>
+                    <a href="">
+                        <img src="animals_transfer/imgs/129992-746164384_small.png">
+                    </a>
+                  </th>
+                  <th>
+                    <a href="">
+                        <img src="animals_transfer/imgs/145320-786403437_small.png">
+                    </a>
+                  </th>
+                  <th>
+                    <a href="">
+                        <img src="animals_transfer/imgs/154529-807726735_small.png">
+                    </a>
+                  </th>
+                </tr>    
+                <tr> 
+                  <th> <video muted controls autoplay loop> <source src="animals_transfer/output/103363-662525715.mp4" type="video/mp4"> </video> </th>
+                  <th> <video muted controls autoplay loop> <source src="animals_transfer/output/129992-746164384.mp4" type="video/mp4"> </video> </th>
+                  <th> <video muted controls autoplay loop> <source src="animals_transfer/output/145320-786403437.mp4" type="video/mp4"> </video> </th>
+                  <th> <video muted controls autoplay loop> <source src="animals_transfer/output/154529-807726735.mp4" type="video/mp4"> </video> </th>
+                </tr>
+            </table>
+
+
+
+
+
+  </section>
+
+
+</body>
+
+
+<script>
+  var videos = document.getElementsByClassName("clickplay");
+  for (var i = 0; i < videos.length; i++) {
+    videos[i].addEventListener("click", function() {
+      this.play();
+    });
+    videos[i].addEventListener("ended", function() {
+      this.pause();
+      this.currentTime = 0;
+    });
+  }
+  
+  document.querySelectorAll('.info-container').forEach(function(container) {
+    container.addEventListener('mouseover', function() {
+      var infoText = container.querySelector('.info-text');
+      infoText.style.display = 'block';
+    });
+  
+    container.addEventListener('mouseout', function() {
+      var infoText = container.querySelector('.info-text');
+      infoText.style.display = 'none';
+    });
+  });
+</script>
+</html>
